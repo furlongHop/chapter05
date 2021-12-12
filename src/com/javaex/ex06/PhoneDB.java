@@ -15,8 +15,10 @@ public class PhoneDB {
 
 	public static void main(String[] args) throws IOException {
 		
+		//1. List 만들기
 		List<Person> pList = new ArrayList<Person>();
 		
+		//2. Reader로 원본 파일에 접속하기
 		Reader fr = new FileReader("C:\\javaStudy\\file\\PhoneDB.txt");
 		BufferedReader br = new BufferedReader(fr);
 		
@@ -33,10 +35,14 @@ public class PhoneDB {
 			String hp = dArray[1];
 			String company =dArray[2];
 			
-			
+			//3. 객체 생성
 			Person person = new Person(name,hp,company);
+			
+			//4. 배열에 입력
 			pList.add(person);
 		}
+		
+		//5. 출력
 		listPrint(pList);
 		/*
 		for(int i=0;i<pList.size();i++) {
@@ -50,6 +56,8 @@ public class PhoneDB {
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("이름, 번호, 회사를 입력하시오");
+		
+		//6. Scanner로 데이터 입력
 		String line = sc.nextLine();
 		
 		String[] dArray = line.split(",");
@@ -57,11 +65,13 @@ public class PhoneDB {
 		String hp = dArray[1];
 		String company =dArray[2];
 		
-		
+		//7. 6번에서 입력한 값을 위한 객체 생성
 		Person person = new Person(name,hp,company);
+		
+		//8. 7번 객체 주소 배열에 입력
 		pList.add(person);
 		
-		
+		//9. 출력
 		listPrint(pList);
 		/*
 		for(int i=0;i<pList.size();i++) {
@@ -72,6 +82,7 @@ public class PhoneDB {
 		}
 		*/
 		
+		//10. Writer로 파일 재작성(초기화 후 처음부터 재작성)
 		Writer fw = new FileWriter("C:\\javaStudy\\file\\PhoneDB.txt");
 		BufferedWriter bw = new BufferedWriter(fw);
 		
